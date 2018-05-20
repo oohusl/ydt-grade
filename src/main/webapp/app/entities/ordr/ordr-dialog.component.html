@@ -1,0 +1,109 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myOrdrLabel" jhiTranslate="ydtApp.ordr.home.createOrEditLabel">Create or edit a Ordr</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!ordr.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="ordr.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.ordr.receiver" for="field_receiver" [ngbTooltip]="'ydtApp.ordr.help.receiver' | translate">Receiver</label>
+            <input type="text" class="form-control" name="receiver" id="field_receiver"
+                [(ngModel)]="ordr.receiver" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.ordr.receiverTel" for="field_receiverTel" [ngbTooltip]="'ydtApp.ordr.help.receiverTel' | translate">Receiver Tel</label>
+            <input type="text" class="form-control" name="receiverTel" id="field_receiverTel"
+                [(ngModel)]="ordr.receiverTel" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.ordr.receiverAddr" for="field_receiverAddr" [ngbTooltip]="'ydtApp.ordr.help.receiverAddr' | translate">Receiver Addr</label>
+            <input type="text" class="form-control" name="receiverAddr" id="field_receiverAddr"
+                [(ngModel)]="ordr.receiverAddr" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.ordr.deliveryType" for="field_deliveryType" [ngbTooltip]="'ydtApp.ordr.help.deliveryType' | translate">Delivery Type</label>
+            <input type="number" class="form-control" name="deliveryType" id="field_deliveryType"
+                [(ngModel)]="ordr.deliveryType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.ordr.insuredPrice" for="field_insuredPrice" [ngbTooltip]="'ydtApp.ordr.help.insuredPrice' | translate">Insured Price</label>
+            <input type="number" class="form-control" name="insuredPrice" id="field_insuredPrice"
+                [(ngModel)]="ordr.insuredPrice" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.ordr.totalQuantity" for="field_totalQuantity" [ngbTooltip]="'ydtApp.ordr.help.totalQuantity' | translate">Total Quantity</label>
+            <input type="number" class="form-control" name="totalQuantity" id="field_totalQuantity"
+                [(ngModel)]="ordr.totalQuantity" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.ordr.handingFee" for="field_handingFee" [ngbTooltip]="'ydtApp.ordr.help.handingFee' | translate">Handing Fee</label>
+            <input type="number" class="form-control" name="handingFee" id="field_handingFee"
+                [(ngModel)]="ordr.handingFee" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.ordr.createDate" for="field_createDate" [ngbTooltip]="'ydtApp.ordr.help.createDate' | translate">Create Date</label>
+            <div class="d-flex">
+                <input id="field_createDate" type="datetime-local" class="form-control" name="createDate" [(ngModel)]="ordr.createDate"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.ordr.receiveDate" for="field_receiveDate" [ngbTooltip]="'ydtApp.ordr.help.receiveDate' | translate">Receive Date</label>
+            <div class="d-flex">
+                <input id="field_receiveDate" type="datetime-local" class="form-control" name="receiveDate" [(ngModel)]="ordr.receiveDate"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.ordr.receiveNo" for="field_receiveNo" [ngbTooltip]="'ydtApp.ordr.help.receiveNo' | translate">Receive No</label>
+            <input type="text" class="form-control" name="receiveNo" id="field_receiveNo"
+                [(ngModel)]="ordr.receiveNo" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.ordr.backDate" for="field_backDate" [ngbTooltip]="'ydtApp.ordr.help.backDate' | translate">Back Date</label>
+            <div class="d-flex">
+                <input id="field_backDate" type="datetime-local" class="form-control" name="backDate" [(ngModel)]="ordr.backDate"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.ordr.backNo" for="field_backNo" [ngbTooltip]="'ydtApp.ordr.help.backNo' | translate">Back No</label>
+            <input type="text" class="form-control" name="backNo" id="field_backNo"
+                [(ngModel)]="ordr.backNo" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.ordr.state" for="field_state" [ngbTooltip]="'ydtApp.ordr.help.state' | translate">State</label>
+            <select class="form-control" name="state" [(ngModel)]="ordr.state" id="field_state" >
+                <option value="NEW">{{'ydtApp.OrderState.NEW' | translate}}</option>
+                <option value="RECEIVED">{{'ydtApp.OrderState.RECEIVED' | translate}}</option>
+                <option value="TO_PAY">{{'ydtApp.OrderState.TO_PAY' | translate}}</option>
+                <option value="TO_SEND">{{'ydtApp.OrderState.TO_SEND' | translate}}</option>
+                <option value="SENT">{{'ydtApp.OrderState.SENT' | translate}}</option>
+                <option value="FINISHED">{{'ydtApp.OrderState.FINISHED' | translate}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.ordr.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" [(ngModel)]="ordr.user" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userOption.id === ordr.user?.id ? ordr.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

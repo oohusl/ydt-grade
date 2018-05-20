@@ -1,0 +1,27 @@
+
+{
+    "ydtApp": {
+        "imageDepot" : {
+            "home": {
+                "title": "Image Depots",
+                "createLabel": "创建新 Image Depot",
+                "createOrEditLabel": "创建或编辑 Image Depot"
+            },
+            "created": "Image Depot {{ param }} 创建成功",
+            "updated": "Image Depot {{ param }} 更新成功",
+            "deleted": "Image Depot {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Image Depot {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Image Depot"
+            },
+            "image": "Image",
+            "createDate": "Create Date",
+            "help": {
+                "image": "图片",
+                "createDate": "创建日期"
+            }
+        }
+    }
+}

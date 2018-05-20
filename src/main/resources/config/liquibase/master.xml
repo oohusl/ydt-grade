@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180514132344_added_entity_Ordr.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180514132345_added_entity_OrdrCoin.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180514132346_added_entity_Coin.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180514132347_added_entity_UserAddress.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180514132348_added_entity_FeeRule.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180519232700_added_entity_ImageDepot.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20180514132344_added_entity_constraints_Ordr.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180514132345_added_entity_constraints_OrdrCoin.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180514132346_added_entity_constraints_Coin.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180514132347_added_entity_constraints_UserAddress.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

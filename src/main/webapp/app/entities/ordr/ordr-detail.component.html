@@ -1,0 +1,78 @@
+
+<div *ngIf="ordr">
+    <h2><span jhiTranslate="ydtApp.ordr.detail.title">Ordr</span> {{ordr.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ydtApp.ordr.receiver" [ngbTooltip]="'ydtApp.ordr.help.receiver' | translate">Receiver</span></dt>
+        <dd>
+            <span>{{ordr.receiver}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.ordr.receiverTel" [ngbTooltip]="'ydtApp.ordr.help.receiverTel' | translate">Receiver Tel</span></dt>
+        <dd>
+            <span>{{ordr.receiverTel}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.ordr.receiverAddr" [ngbTooltip]="'ydtApp.ordr.help.receiverAddr' | translate">Receiver Addr</span></dt>
+        <dd>
+            <span>{{ordr.receiverAddr}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.ordr.deliveryType" [ngbTooltip]="'ydtApp.ordr.help.deliveryType' | translate">Delivery Type</span></dt>
+        <dd>
+            <span>{{ordr.deliveryType}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.ordr.insuredPrice" [ngbTooltip]="'ydtApp.ordr.help.insuredPrice' | translate">Insured Price</span></dt>
+        <dd>
+            <span>{{ordr.insuredPrice}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.ordr.totalQuantity" [ngbTooltip]="'ydtApp.ordr.help.totalQuantity' | translate">Total Quantity</span></dt>
+        <dd>
+            <span>{{ordr.totalQuantity}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.ordr.handingFee" [ngbTooltip]="'ydtApp.ordr.help.handingFee' | translate">Handing Fee</span></dt>
+        <dd>
+            <span>{{ordr.handingFee}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.ordr.createDate" [ngbTooltip]="'ydtApp.ordr.help.createDate' | translate">Create Date</span></dt>
+        <dd>
+            <span>{{ordr.createDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.ordr.receiveDate" [ngbTooltip]="'ydtApp.ordr.help.receiveDate' | translate">Receive Date</span></dt>
+        <dd>
+            <span>{{ordr.receiveDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.ordr.receiveNo" [ngbTooltip]="'ydtApp.ordr.help.receiveNo' | translate">Receive No</span></dt>
+        <dd>
+            <span>{{ordr.receiveNo}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.ordr.backDate" [ngbTooltip]="'ydtApp.ordr.help.backDate' | translate">Back Date</span></dt>
+        <dd>
+            <span>{{ordr.backDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.ordr.backNo" [ngbTooltip]="'ydtApp.ordr.help.backNo' | translate">Back No</span></dt>
+        <dd>
+            <span>{{ordr.backNo}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.ordr.state" [ngbTooltip]="'ydtApp.ordr.help.state' | translate">State</span></dt>
+        <dd>
+            <span jhiTranslate="{{'ydtApp.OrderState.' + ordr.state}}">{{ordr.state}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.ordr.user">User</span></dt>
+        <dd>
+            {{ordr.user?.id}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'ordr/'+ ordr.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,50 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myFeeRuleLabel" jhiTranslate="ydtApp.feeRule.home.createOrEditLabel">Create or edit a Fee Rule</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!feeRule.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="feeRule.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.feeRule.name" for="field_name" [ngbTooltip]="'ydtApp.feeRule.help.name' | translate">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="feeRule.name" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.feeRule.minValue" for="field_minValue" [ngbTooltip]="'ydtApp.feeRule.help.minValue' | translate">Min Value</label>
+            <input type="number" class="form-control" name="minValue" id="field_minValue"
+                [(ngModel)]="feeRule.minValue" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.feeRule.maxValue" for="field_maxValue" [ngbTooltip]="'ydtApp.feeRule.help.maxValue' | translate">Max Value</label>
+            <input type="number" class="form-control" name="maxValue" id="field_maxValue"
+                [(ngModel)]="feeRule.maxValue" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.feeRule.rate" for="field_rate" [ngbTooltip]="'ydtApp.feeRule.help.rate' | translate">Rate</label>
+            <input type="number" class="form-control" name="rate" id="field_rate"
+                [(ngModel)]="feeRule.rate" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.feeRule.fixed" for="field_fixed" [ngbTooltip]="'ydtApp.feeRule.help.fixed' | translate">Fixed</label>
+            <input type="number" class="form-control" name="fixed" id="field_fixed"
+                [(ngModel)]="feeRule.fixed" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

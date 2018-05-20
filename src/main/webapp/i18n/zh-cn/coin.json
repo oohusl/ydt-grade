@@ -1,0 +1,54 @@
+
+{
+    "ydtApp": {
+        "coin" : {
+            "home": {
+                "title": "Coins",
+                "createLabel": "创建新 Coin",
+                "createOrEditLabel": "创建或编辑 Coin"
+            },
+            "created": "Coin {{ param }} 创建成功",
+            "updated": "Coin {{ param }} 更新成功",
+            "deleted": "Coin {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Coin {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Coin"
+            },
+            "certNo": "Cert No",
+            "typeNo": "Type No",
+            "year": "Year",
+            "denom": "Denom",
+            "country": "Country",
+            "name": "Name",
+            "packageType": "Package Type",
+            "gradingResult": "Grading Result",
+            "blockChainFlag": "Block Chain Flag",
+            "declaredValue": "Declared Value",
+            "handingFee": "Handing Fee",
+            "packageFlag": "Package Flag",
+            "state": "State",
+            "frontImage": "Front Image",
+            "backImage": "Back Image",
+            "ordr": "Ordr",
+            "help": {
+                "certNo": "认证编号",
+                "typeNo": "类型编号",
+                "year": "年代",
+                "denom": "面额",
+                "country": "国别",
+                "name": "钱币名称",
+                "packageType": "装盒类型",
+                "gradingResult": "评级结果",
+                "blockChainFlag": "是否上链(换虚拟币)",
+                "declaredValue": "预估价格(每枚)",
+                "handingFee": "手续费",
+                "packageFlag": "是否装盒",
+                "state": "钱币状态",
+                "frontImage": "正面照片",
+                "backImage": "反面照片"
+            }
+        }
+    }
+}

@@ -1,0 +1,94 @@
+<div>
+    <h2>
+        <span jhiTranslate="ydtApp.ordr.home.title">Ordrs</span>
+        <button class="btn btn-primary float-right jh-create-entity create-ordr" [routerLink]="['/', { outlets: { popup: ['ordr-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="ydtApp.ordr.home.createLabel">
+            Create new Ordr
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="ordrs">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="receiver"><span jhiTranslate="ydtApp.ordr.receiver">Receiver</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="receiverTel"><span jhiTranslate="ydtApp.ordr.receiverTel">Receiver Tel</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="receiverAddr"><span jhiTranslate="ydtApp.ordr.receiverAddr">Receiver Addr</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="deliveryType"><span jhiTranslate="ydtApp.ordr.deliveryType">Delivery Type</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="insuredPrice"><span jhiTranslate="ydtApp.ordr.insuredPrice">Insured Price</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="totalQuantity"><span jhiTranslate="ydtApp.ordr.totalQuantity">Total Quantity</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="handingFee"><span jhiTranslate="ydtApp.ordr.handingFee">Handing Fee</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createDate"><span jhiTranslate="ydtApp.ordr.createDate">Create Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="receiveDate"><span jhiTranslate="ydtApp.ordr.receiveDate">Receive Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="receiveNo"><span jhiTranslate="ydtApp.ordr.receiveNo">Receive No</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="backDate"><span jhiTranslate="ydtApp.ordr.backDate">Back Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="backNo"><span jhiTranslate="ydtApp.ordr.backNo">Back No</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="state"><span jhiTranslate="ydtApp.ordr.state">State</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="user.id"><span jhiTranslate="ydtApp.ordr.user">User</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ordr of ordrs ;trackBy: trackId">
+                <td><a [routerLink]="['../ordr', ordr.id ]">{{ordr.id}}</a></td>
+                <td>{{ordr.receiver}}</td>
+                <td>{{ordr.receiverTel}}</td>
+                <td>{{ordr.receiverAddr}}</td>
+                <td>{{ordr.deliveryType}}</td>
+                <td>{{ordr.insuredPrice}}</td>
+                <td>{{ordr.totalQuantity}}</td>
+                <td>{{ordr.handingFee}}</td>
+                <td>{{ordr.createDate | date:'medium'}}</td>
+                <td>{{ordr.receiveDate | date:'medium'}}</td>
+                <td>{{ordr.receiveNo}}</td>
+                <td>{{ordr.backDate | date:'medium'}}</td>
+                <td>{{ordr.backNo}}</td>
+                <td jhiTranslate="{{'ydtApp.OrderState.' + ordr.state}}">{{ordr.state}}</td>
+                <td>
+                    {{ordr.user?.id}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../ordr', ordr.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ordr/'+ ordr.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ordr/'+ ordr.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="ordrs && ordrs.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

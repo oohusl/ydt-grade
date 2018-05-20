@@ -1,0 +1,88 @@
+
+<div *ngIf="coin">
+    <h2><span jhiTranslate="ydtApp.coin.detail.title">Coin</span> {{coin.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ydtApp.coin.certNo" [ngbTooltip]="'ydtApp.coin.help.certNo' | translate">Cert No</span></dt>
+        <dd>
+            <span>{{coin.certNo}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.coin.typeNo" [ngbTooltip]="'ydtApp.coin.help.typeNo' | translate">Type No</span></dt>
+        <dd>
+            <span>{{coin.typeNo}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.coin.year" [ngbTooltip]="'ydtApp.coin.help.year' | translate">Year</span></dt>
+        <dd>
+            <span>{{coin.year}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.coin.denom" [ngbTooltip]="'ydtApp.coin.help.denom' | translate">Denom</span></dt>
+        <dd>
+            <span>{{coin.denom}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.coin.country" [ngbTooltip]="'ydtApp.coin.help.country' | translate">Country</span></dt>
+        <dd>
+            <span>{{coin.country}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.coin.name" [ngbTooltip]="'ydtApp.coin.help.name' | translate">Name</span></dt>
+        <dd>
+            <span>{{coin.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.coin.packageType" [ngbTooltip]="'ydtApp.coin.help.packageType' | translate">Package Type</span></dt>
+        <dd>
+            <span>{{coin.packageType}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.coin.gradingResult" [ngbTooltip]="'ydtApp.coin.help.gradingResult' | translate">Grading Result</span></dt>
+        <dd>
+            <span jhiTranslate="{{'ydtApp.Fact.' + coin.gradingResult}}">{{coin.gradingResult}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.coin.blockChainFlag" [ngbTooltip]="'ydtApp.coin.help.blockChainFlag' | translate">Block Chain Flag</span></dt>
+        <dd>
+            <span jhiTranslate="{{'ydtApp.State.' + coin.blockChainFlag}}">{{coin.blockChainFlag}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.coin.declaredValue" [ngbTooltip]="'ydtApp.coin.help.declaredValue' | translate">Declared Value</span></dt>
+        <dd>
+            <span>{{coin.declaredValue}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.coin.handingFee" [ngbTooltip]="'ydtApp.coin.help.handingFee' | translate">Handing Fee</span></dt>
+        <dd>
+            <span>{{coin.handingFee}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.coin.packageFlag" [ngbTooltip]="'ydtApp.coin.help.packageFlag' | translate">Package Flag</span></dt>
+        <dd>
+            <span jhiTranslate="{{'ydtApp.State.' + coin.packageFlag}}">{{coin.packageFlag}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.coin.state" [ngbTooltip]="'ydtApp.coin.help.state' | translate">State</span></dt>
+        <dd>
+            <span jhiTranslate="{{'ydtApp.OrderState.' + coin.state}}">{{coin.state}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.coin.frontImage" [ngbTooltip]="'ydtApp.coin.help.frontImage' | translate">Front Image</span></dt>
+        <dd>
+            <span>{{coin.frontImage}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.coin.backImage" [ngbTooltip]="'ydtApp.coin.help.backImage' | translate">Back Image</span></dt>
+        <dd>
+            <span>{{coin.backImage}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.coin.ordr">Ordr</span></dt>
+        <dd>
+            <div *ngIf="coin.ordr">
+                <a [routerLink]="['/ordr', coin.ordr?.id]">{{coin.ordr?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'coin/'+ coin.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

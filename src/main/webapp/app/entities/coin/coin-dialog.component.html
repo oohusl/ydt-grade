@@ -1,0 +1,120 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCoinLabel" jhiTranslate="ydtApp.coin.home.createOrEditLabel">Create or edit a Coin</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!coin.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="coin.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.coin.certNo" for="field_certNo" [ngbTooltip]="'ydtApp.coin.help.certNo' | translate">Cert No</label>
+            <input type="text" class="form-control" name="certNo" id="field_certNo"
+                [(ngModel)]="coin.certNo" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.coin.typeNo" for="field_typeNo" [ngbTooltip]="'ydtApp.coin.help.typeNo' | translate">Type No</label>
+            <input type="text" class="form-control" name="typeNo" id="field_typeNo"
+                [(ngModel)]="coin.typeNo" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.coin.year" for="field_year" [ngbTooltip]="'ydtApp.coin.help.year' | translate">Year</label>
+            <input type="text" class="form-control" name="year" id="field_year"
+                [(ngModel)]="coin.year" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.coin.denom" for="field_denom" [ngbTooltip]="'ydtApp.coin.help.denom' | translate">Denom</label>
+            <input type="number" class="form-control" name="denom" id="field_denom"
+                [(ngModel)]="coin.denom" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.coin.country" for="field_country" [ngbTooltip]="'ydtApp.coin.help.country' | translate">Country</label>
+            <input type="text" class="form-control" name="country" id="field_country"
+                [(ngModel)]="coin.country" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.coin.name" for="field_name" [ngbTooltip]="'ydtApp.coin.help.name' | translate">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="coin.name" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.coin.packageType" for="field_packageType" [ngbTooltip]="'ydtApp.coin.help.packageType' | translate">Package Type</label>
+            <input type="text" class="form-control" name="packageType" id="field_packageType"
+                [(ngModel)]="coin.packageType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.coin.gradingResult" for="field_gradingResult" [ngbTooltip]="'ydtApp.coin.help.gradingResult' | translate">Grading Result</label>
+            <select class="form-control" name="gradingResult" [(ngModel)]="coin.gradingResult" id="field_gradingResult" >
+                <option value="OK">{{'ydtApp.Fact.OK' | translate}}</option>
+                <option value="NOT">{{'ydtApp.Fact.NOT' | translate}}</option>
+                <option value="UNKNOWN">{{'ydtApp.Fact.UNKNOWN' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.coin.blockChainFlag" for="field_blockChainFlag" [ngbTooltip]="'ydtApp.coin.help.blockChainFlag' | translate">Block Chain Flag</label>
+            <select class="form-control" name="blockChainFlag" [(ngModel)]="coin.blockChainFlag" id="field_blockChainFlag" >
+                <option value="YES">{{'ydtApp.State.YES' | translate}}</option>
+                <option value="NO">{{'ydtApp.State.NO' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.coin.declaredValue" for="field_declaredValue" [ngbTooltip]="'ydtApp.coin.help.declaredValue' | translate">Declared Value</label>
+            <input type="number" class="form-control" name="declaredValue" id="field_declaredValue"
+                [(ngModel)]="coin.declaredValue" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.coin.handingFee" for="field_handingFee" [ngbTooltip]="'ydtApp.coin.help.handingFee' | translate">Handing Fee</label>
+            <input type="number" class="form-control" name="handingFee" id="field_handingFee"
+                [(ngModel)]="coin.handingFee" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.coin.packageFlag" for="field_packageFlag" [ngbTooltip]="'ydtApp.coin.help.packageFlag' | translate">Package Flag</label>
+            <select class="form-control" name="packageFlag" [(ngModel)]="coin.packageFlag" id="field_packageFlag" >
+                <option value="YES">{{'ydtApp.State.YES' | translate}}</option>
+                <option value="NO">{{'ydtApp.State.NO' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.coin.state" for="field_state" [ngbTooltip]="'ydtApp.coin.help.state' | translate">State</label>
+            <select class="form-control" name="state" [(ngModel)]="coin.state" id="field_state" >
+                <option value="NEW">{{'ydtApp.OrderState.NEW' | translate}}</option>
+                <option value="RECEIVED">{{'ydtApp.OrderState.RECEIVED' | translate}}</option>
+                <option value="TO_PAY">{{'ydtApp.OrderState.TO_PAY' | translate}}</option>
+                <option value="TO_SEND">{{'ydtApp.OrderState.TO_SEND' | translate}}</option>
+                <option value="SENT">{{'ydtApp.OrderState.SENT' | translate}}</option>
+                <option value="FINISHED">{{'ydtApp.OrderState.FINISHED' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.coin.frontImage" for="field_frontImage" [ngbTooltip]="'ydtApp.coin.help.frontImage' | translate">Front Image</label>
+            <input type="text" class="form-control" name="frontImage" id="field_frontImage"
+                [(ngModel)]="coin.frontImage" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.coin.backImage" for="field_backImage" [ngbTooltip]="'ydtApp.coin.help.backImage' | translate">Back Image</label>
+            <input type="text" class="form-control" name="backImage" id="field_backImage"
+                [(ngModel)]="coin.backImage" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.coin.ordr" for="field_ordr">Ordr</label>
+            <select class="form-control" id="field_ordr" name="ordr" [(ngModel)]="coin.ordr" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="ordrOption.id === coin.ordr?.id ? coin.ordr : ordrOption" *ngFor="let ordrOption of ordrs; trackBy: trackOrdrById">{{ordrOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

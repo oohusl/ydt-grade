@@ -1,0 +1,44 @@
+
+<div *ngIf="ordrCoin">
+    <h2><span jhiTranslate="ydtApp.ordrCoin.detail.title">Ordr Coin</span> {{ordrCoin.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ydtApp.ordrCoin.name" [ngbTooltip]="'ydtApp.ordrCoin.help.name' | translate">Name</span></dt>
+        <dd>
+            <span>{{ordrCoin.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.ordrCoin.quantity" [ngbTooltip]="'ydtApp.ordrCoin.help.quantity' | translate">Quantity</span></dt>
+        <dd>
+            <span>{{ordrCoin.quantity}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.ordrCoin.packageFlag" [ngbTooltip]="'ydtApp.ordrCoin.help.packageFlag' | translate">Package Flag</span></dt>
+        <dd>
+            <span jhiTranslate="{{'ydtApp.State.' + ordrCoin.packageFlag}}">{{ordrCoin.packageFlag}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.ordrCoin.declaredValue" [ngbTooltip]="'ydtApp.ordrCoin.help.declaredValue' | translate">Declared Value</span></dt>
+        <dd>
+            <span>{{ordrCoin.declaredValue}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.ordrCoin.ordr">Ordr</span></dt>
+        <dd>
+            <div *ngIf="ordrCoin.ordr">
+                <a [routerLink]="['/ordr', ordrCoin.ordr?.id]">{{ordrCoin.ordr?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'ordr-coin/'+ ordrCoin.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

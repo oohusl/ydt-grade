@@ -1,0 +1,97 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "ordrCoins",
+            "otherEntityName": "ordrCoin",
+            "otherEntityRelationshipName": "ordr"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "coins",
+            "otherEntityName": "coin",
+            "otherEntityRelationshipName": "ordr"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "receiver",
+            "javadoc": "收件人",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "receiverTel",
+            "javadoc": "收件人-电话",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "receiverAddr",
+            "javadoc": "收件人-地址",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "deliveryType",
+            "javadoc": "回寄方式(0 自取 1 快递)",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "insuredPrice",
+            "javadoc": "快递-保费",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "totalQuantity",
+            "javadoc": "总数量",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "handingFee",
+            "javadoc": "手续费",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "createDate",
+            "javadoc": "提交日期",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "receiveDate",
+            "javadoc": "收到日期",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "receiveNo",
+            "javadoc": "收到-快递单号",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "backDate",
+            "javadoc": "回寄日期",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "backNo",
+            "javadoc": "回寄-快递单号",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "state",
+            "javadoc": "订单状态",
+            "fieldType": "OrderState",
+            "fieldValues": "NEW,RECEIVED,TO_PAY,TO_SEND,SENT,FINISHED"
+        }
+    ],
+    "changelogDate": "20180514132344",
+    "entityTableName": "ordr",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false
+}

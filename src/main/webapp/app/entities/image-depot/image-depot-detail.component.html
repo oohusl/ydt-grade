@@ -1,0 +1,35 @@
+
+<div *ngIf="imageDepot">
+    <h2><span jhiTranslate="ydtApp.imageDepot.detail.title">Image Depot</span> {{imageDepot.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ydtApp.imageDepot.image" [ngbTooltip]="'ydtApp.imageDepot.help.image' | translate">Image</span></dt>
+        <dd>
+            <div *ngIf="imageDepot.image">
+                <a (click)="openFile(imageDepot.imageContentType, imageDepot.image)">
+                    <img [src]="'data:' + imageDepot.imageContentType + ';base64,' + imageDepot.image" style="max-width: 100%;" alt="imageDepot image"/>
+                </a>
+                {{imageDepot.imageContentType}}, {{byteSize(imageDepot.image)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.imageDepot.createDate" [ngbTooltip]="'ydtApp.imageDepot.help.createDate' | translate">Create Date</span></dt>
+        <dd>
+            <span>{{imageDepot.createDate | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'image-depot/'+ imageDepot.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

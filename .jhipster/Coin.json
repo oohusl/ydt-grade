@@ -1,0 +1,98 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "ordr",
+            "otherEntityName": "ordr",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "certNo",
+            "javadoc": "认证编号",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "typeNo",
+            "javadoc": "类型编号",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "year",
+            "javadoc": "年代",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "denom",
+            "javadoc": "面额",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "country",
+            "javadoc": "国别",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "javadoc": "钱币名称",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "packageType",
+            "javadoc": "装盒类型",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gradingResult",
+            "javadoc": "评级结果",
+            "fieldType": "Fact",
+            "fieldValues": "OK,NOT,UNKNOWN"
+        },
+        {
+            "fieldName": "blockChainFlag",
+            "javadoc": "是否上链(换虚拟币)",
+            "fieldType": "State",
+            "fieldValues": "YES,NO"
+        },
+        {
+            "fieldName": "declaredValue",
+            "javadoc": "预估价格(每枚)",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "handingFee",
+            "javadoc": "手续费",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "packageFlag",
+            "javadoc": "是否装盒",
+            "fieldType": "State",
+            "fieldValues": "YES,NO"
+        },
+        {
+            "fieldName": "state",
+            "javadoc": "钱币状态",
+            "fieldType": "OrderState",
+            "fieldValues": "NEW,RECEIVED,TO_PAY,TO_SEND,SENT,FINISHED"
+        },
+        {
+            "fieldName": "frontImage",
+            "javadoc": "正面照片",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "backImage",
+            "javadoc": "反面照片",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180514132346",
+    "entityTableName": "coin",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false
+}

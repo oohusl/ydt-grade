@@ -1,0 +1,37 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "javadoc": "等级",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "minValue",
+            "javadoc": "最低价 <=",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "maxValue",
+            "javadoc": "最高价 >",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "rate",
+            "javadoc": "eg. 市场估值的1%, 0表示固定收费",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "fixed",
+            "javadoc": "固定金额",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20180514132348",
+    "entityTableName": "fee_rule",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,52 @@
+
+{
+    "ydtApp": {
+        "ordr" : {
+            "home": {
+                "title": "Ordrs",
+                "createLabel": "创建新 Ordr",
+                "createOrEditLabel": "创建或编辑 Ordr"
+            },
+            "created": "Ordr {{ param }} 创建成功",
+            "updated": "Ordr {{ param }} 更新成功",
+            "deleted": "Ordr {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Ordr {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Ordr"
+            },
+            "receiver": "Receiver",
+            "receiverTel": "Receiver Tel",
+            "receiverAddr": "Receiver Addr",
+            "deliveryType": "Delivery Type",
+            "insuredPrice": "Insured Price",
+            "totalQuantity": "Total Quantity",
+            "handingFee": "Handing Fee",
+            "createDate": "Create Date",
+            "receiveDate": "Receive Date",
+            "receiveNo": "Receive No",
+            "backDate": "Back Date",
+            "backNo": "Back No",
+            "state": "State",
+            "ordrCoins": "Ordr Coins",
+            "coins": "Coins",
+            "user": "User",
+            "help": {
+                "receiver": "收件人",
+                "receiverTel": "收件人-电话",
+                "receiverAddr": "收件人-地址",
+                "deliveryType": "回寄方式(0 自取 1 快递)",
+                "insuredPrice": "快递-保费",
+                "totalQuantity": "总数量",
+                "handingFee": "手续费",
+                "createDate": "提交日期",
+                "receiveDate": "收到日期",
+                "receiveNo": "收到-快递单号",
+                "backDate": "回寄日期",
+                "backNo": "回寄-快递单号",
+                "state": "订单状态"
+            }
+        }
+    }
+}

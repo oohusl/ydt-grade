@@ -1,0 +1,40 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "ordr",
+            "otherEntityName": "ordr",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "javadoc": "钱币名称",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quantity",
+            "javadoc": "数量",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "packageFlag",
+            "javadoc": "是否装盒",
+            "fieldType": "State",
+            "fieldValues": "YES,NO"
+        },
+        {
+            "fieldName": "declaredValue",
+            "javadoc": "预估价格(每枚)",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "changelogDate": "20180514132345",
+    "entityTableName": "ordr_coin",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false
+}

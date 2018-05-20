@@ -1,0 +1,57 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myUserAddressLabel" jhiTranslate="ydtApp.userAddress.home.createOrEditLabel">Create or edit a User Address</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!userAddress.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="userAddress.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.userAddress.receiver" for="field_receiver" [ngbTooltip]="'ydtApp.userAddress.help.receiver' | translate">Receiver</label>
+            <input type="text" class="form-control" name="receiver" id="field_receiver"
+                [(ngModel)]="userAddress.receiver" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.userAddress.receiverTel" for="field_receiverTel" [ngbTooltip]="'ydtApp.userAddress.help.receiverTel' | translate">Receiver Tel</label>
+            <input type="text" class="form-control" name="receiverTel" id="field_receiverTel"
+                [(ngModel)]="userAddress.receiverTel" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.userAddress.receiverCity" for="field_receiverCity" [ngbTooltip]="'ydtApp.userAddress.help.receiverCity' | translate">Receiver City</label>
+            <input type="text" class="form-control" name="receiverCity" id="field_receiverCity"
+                [(ngModel)]="userAddress.receiverCity" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.userAddress.receiverAddr" for="field_receiverAddr" [ngbTooltip]="'ydtApp.userAddress.help.receiverAddr' | translate">Receiver Addr</label>
+            <input type="text" class="form-control" name="receiverAddr" id="field_receiverAddr"
+                [(ngModel)]="userAddress.receiverAddr" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.userAddress.selected" for="field_selected" [ngbTooltip]="'ydtApp.userAddress.help.selected' | translate">Selected</label>
+            <input type="checkbox" class="form-control" name="selected" id="field_selected"
+                [(ngModel)]="userAddress.selected" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ydtApp.userAddress.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" [(ngModel)]="userAddress.user" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userOption.id === userAddress.user?.id ? userAddress.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

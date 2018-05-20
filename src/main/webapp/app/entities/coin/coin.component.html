@@ -1,0 +1,100 @@
+<div>
+    <h2>
+        <span jhiTranslate="ydtApp.coin.home.title">Coins</span>
+        <button class="btn btn-primary float-right jh-create-entity create-coin" [routerLink]="['/', { outlets: { popup: ['coin-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="ydtApp.coin.home.createLabel">
+            Create new Coin
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="coins">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="certNo"><span jhiTranslate="ydtApp.coin.certNo">Cert No</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="typeNo"><span jhiTranslate="ydtApp.coin.typeNo">Type No</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="year"><span jhiTranslate="ydtApp.coin.year">Year</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="denom"><span jhiTranslate="ydtApp.coin.denom">Denom</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="country"><span jhiTranslate="ydtApp.coin.country">Country</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="name"><span jhiTranslate="ydtApp.coin.name">Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="packageType"><span jhiTranslate="ydtApp.coin.packageType">Package Type</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="gradingResult"><span jhiTranslate="ydtApp.coin.gradingResult">Grading Result</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="blockChainFlag"><span jhiTranslate="ydtApp.coin.blockChainFlag">Block Chain Flag</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="declaredValue"><span jhiTranslate="ydtApp.coin.declaredValue">Declared Value</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="handingFee"><span jhiTranslate="ydtApp.coin.handingFee">Handing Fee</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="packageFlag"><span jhiTranslate="ydtApp.coin.packageFlag">Package Flag</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="state"><span jhiTranslate="ydtApp.coin.state">State</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="frontImage"><span jhiTranslate="ydtApp.coin.frontImage">Front Image</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="backImage"><span jhiTranslate="ydtApp.coin.backImage">Back Image</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="ordr.id"><span jhiTranslate="ydtApp.coin.ordr">Ordr</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let coin of coins ;trackBy: trackId">
+                <td><a [routerLink]="['../coin', coin.id ]">{{coin.id}}</a></td>
+                <td>{{coin.certNo}}</td>
+                <td>{{coin.typeNo}}</td>
+                <td>{{coin.year}}</td>
+                <td>{{coin.denom}}</td>
+                <td>{{coin.country}}</td>
+                <td>{{coin.name}}</td>
+                <td>{{coin.packageType}}</td>
+                <td jhiTranslate="{{'ydtApp.Fact.' + coin.gradingResult}}">{{coin.gradingResult}}</td>
+                <td jhiTranslate="{{'ydtApp.State.' + coin.blockChainFlag}}">{{coin.blockChainFlag}}</td>
+                <td>{{coin.declaredValue}}</td>
+                <td>{{coin.handingFee}}</td>
+                <td jhiTranslate="{{'ydtApp.State.' + coin.packageFlag}}">{{coin.packageFlag}}</td>
+                <td jhiTranslate="{{'ydtApp.OrderState.' + coin.state}}">{{coin.state}}</td>
+                <td>{{coin.frontImage}}</td>
+                <td>{{coin.backImage}}</td>
+                <td>
+                    <div *ngIf="coin.ordr">
+                        <a [routerLink]="['../ordr', coin.ordr?.id ]" >{{coin.ordr?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../coin', coin.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'coin/'+ coin.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'coin/'+ coin.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="coins && coins.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

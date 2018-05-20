@@ -1,0 +1,10 @@
+{
+    "ydtApp": {
+        "Fact" : {
+            "null": "",
+            "OK": "OK",
+            "NOT": "NOT",
+            "UNKNOWN": "UNKNOWN"
+        }
+    }
+}

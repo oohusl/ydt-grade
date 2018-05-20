@@ -1,0 +1,70 @@
+<div>
+    <h2>
+        <span jhiTranslate="ydtApp.userAddress.home.title">User Addresses</span>
+        <button class="btn btn-primary float-right jh-create-entity create-user-address" [routerLink]="['/', { outlets: { popup: ['user-address-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="ydtApp.userAddress.home.createLabel">
+            Create new User Address
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="userAddresses">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="ydtApp.userAddress.receiver">Receiver</span></th>
+            <th><span jhiTranslate="ydtApp.userAddress.receiverTel">Receiver Tel</span></th>
+            <th><span jhiTranslate="ydtApp.userAddress.receiverCity">Receiver City</span></th>
+            <th><span jhiTranslate="ydtApp.userAddress.receiverAddr">Receiver Addr</span></th>
+            <th><span jhiTranslate="ydtApp.userAddress.selected">Selected</span></th>
+            <th><span jhiTranslate="ydtApp.userAddress.user">User</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let userAddress of userAddresses ;trackBy: trackId">
+                <td><a [routerLink]="['../user-address', userAddress.id ]">{{userAddress.id}}</a></td>
+                <td>{{userAddress.receiver}}</td>
+                <td>{{userAddress.receiverTel}}</td>
+                <td>{{userAddress.receiverCity}}</td>
+                <td>{{userAddress.receiverAddr}}</td>
+                <td>{{userAddress.selected}}</td>
+                <td>
+                    {{userAddress.user?.id}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../user-address', userAddress.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'user-address/'+ userAddress.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'user-address/'+ userAddress.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

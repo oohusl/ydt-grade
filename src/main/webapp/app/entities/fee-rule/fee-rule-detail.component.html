@@ -1,0 +1,42 @@
+
+<div *ngIf="feeRule">
+    <h2><span jhiTranslate="ydtApp.feeRule.detail.title">Fee Rule</span> {{feeRule.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ydtApp.feeRule.name" [ngbTooltip]="'ydtApp.feeRule.help.name' | translate">Name</span></dt>
+        <dd>
+            <span>{{feeRule.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.feeRule.minValue" [ngbTooltip]="'ydtApp.feeRule.help.minValue' | translate">Min Value</span></dt>
+        <dd>
+            <span>{{feeRule.minValue}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.feeRule.maxValue" [ngbTooltip]="'ydtApp.feeRule.help.maxValue' | translate">Max Value</span></dt>
+        <dd>
+            <span>{{feeRule.maxValue}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.feeRule.rate" [ngbTooltip]="'ydtApp.feeRule.help.rate' | translate">Rate</span></dt>
+        <dd>
+            <span>{{feeRule.rate}}</span>
+        </dd>
+        <dt><span jhiTranslate="ydtApp.feeRule.fixed" [ngbTooltip]="'ydtApp.feeRule.help.fixed' | translate">Fixed</span></dt>
+        <dd>
+            <span>{{feeRule.fixed}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'fee-rule/'+ feeRule.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,70 @@
+<div>
+    <h2>
+        <span jhiTranslate="ydtApp.ordrCoin.home.title">Ordr Coins</span>
+        <button class="btn btn-primary float-right jh-create-entity create-ordr-coin" [routerLink]="['/', { outlets: { popup: ['ordr-coin-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="ydtApp.ordrCoin.home.createLabel">
+            Create new Ordr Coin
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="ordrCoins">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="ydtApp.ordrCoin.name">Name</span></th>
+            <th><span jhiTranslate="ydtApp.ordrCoin.quantity">Quantity</span></th>
+            <th><span jhiTranslate="ydtApp.ordrCoin.packageFlag">Package Flag</span></th>
+            <th><span jhiTranslate="ydtApp.ordrCoin.declaredValue">Declared Value</span></th>
+            <th><span jhiTranslate="ydtApp.ordrCoin.ordr">Ordr</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ordrCoin of ordrCoins ;trackBy: trackId">
+                <td><a [routerLink]="['../ordr-coin', ordrCoin.id ]">{{ordrCoin.id}}</a></td>
+                <td>{{ordrCoin.name}}</td>
+                <td>{{ordrCoin.quantity}}</td>
+                <td jhiTranslate="{{'ydtApp.State.' + ordrCoin.packageFlag}}">{{ordrCoin.packageFlag}}</td>
+                <td>{{ordrCoin.declaredValue}}</td>
+                <td>
+                    <div *ngIf="ordrCoin.ordr">
+                        <a [routerLink]="['../ordr', ordrCoin.ordr?.id ]" >{{ordrCoin.ordr?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../ordr-coin', ordrCoin.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ordr-coin/'+ ordrCoin.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ordr-coin/'+ ordrCoin.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

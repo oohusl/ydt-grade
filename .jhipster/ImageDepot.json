@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "image",
+            "javadoc": "图片",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "createDate",
+            "javadoc": "创建日期",
+            "fieldType": "Instant"
+        }
+    ],
+    "changelogDate": "20180519232700",
+    "entityTableName": "image_depot",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false
+}

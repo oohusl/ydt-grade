@@ -1,0 +1,33 @@
+
+{
+    "ydtApp": {
+        "feeRule" : {
+            "home": {
+                "title": "Fee Rules",
+                "createLabel": "创建新 Fee Rule",
+                "createOrEditLabel": "创建或编辑 Fee Rule"
+            },
+            "created": "Fee Rule {{ param }} 创建成功",
+            "updated": "Fee Rule {{ param }} 更新成功",
+            "deleted": "Fee Rule {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Fee Rule {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Fee Rule"
+            },
+            "name": "Name",
+            "minValue": "Min Value",
+            "maxValue": "Max Value",
+            "rate": "Rate",
+            "fixed": "Fixed",
+            "help": {
+                "name": "等级",
+                "minValue": "最低价 &lt;=",
+                "maxValue": "最高价 &gt;",
+                "rate": "eg. 市场估值的1%, 0表示固定收费",
+                "fixed": "固定金额"
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "ydtApp": {
+        "OrderState" : {
+            "null": "",
+            "NEW": "NEW",
+            "RECEIVED": "RECEIVED",
+            "TO_PAY": "TO_PAY",
+            "TO_SEND": "TO_SEND",
+            "SENT": "SENT",
+            "FINISHED": "FINISHED"
+        }
+    }
+}
